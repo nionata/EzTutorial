@@ -1,0 +1,68 @@
+name: EzTutorial
+main: me.smurfy129.tutorial.Main
+softdepend: [Vault]
+version: 3.1
+description: Make tutorials easily for your server players to use and learn from!
+
+commands:
+  tutorial:
+    description: General tutorial command
+  tut:
+    description: General tutorial command
+  t:
+    description: General tutorial command
+
+permissions:
+  tutorial.*:
+    description: Use all EzTutorial commands.
+    children:
+      tutorial.help: true
+      tutorial.list: true
+      tutorial.new: true
+      tutorial.deltutorial: true
+      tutorial.dellocation: true
+      tutorial.setlocation: true
+      tutorial.start: true
+      tutorial.start.player: true
+      tutorial.start.sign: true
+      tutorial.start.npc: true
+  tutorial.user:
+    description: Use all the user commands/features.
+    children:
+      tutorial.list: true
+      tutorial.help: true
+      tutorial.start: true
+      tutorial.start.sign: true
+      tutorial.start.npc: true
+  tutorial.help:
+    description: Allows the player to use the help command.
+    default: op
+  tutorial.reload:
+    description: Allows the player to use the reload command.
+    default: op
+  tutorial.list:
+    description: Allows the player to use the list command.
+    default: op
+  tutorial.new:
+    description: Allows the player to use the new command.
+    default: op
+  tutorial.delete.tutorial:
+    description: Allows the player to use the deltutorial command.
+    default: op
+  tutorial.delete.location:
+    description: Allows the player to use the dellocation command.
+    default: op
+  tutorial.set.location:
+    description: Allows the player to use the setlocation command.
+    default: op
+  tutorial.start:
+    description: Allows the player to use the start command.
+    default: op
+  tutorial.start.sign:
+    description: Allows the player to use start signs.
+    default: op
+  tutorial.start.player:
+    description: Allows the player to use the startplayer command.
+    default: op
+  tutorial.start.npc:
+    description: Allows the player to use the start npcs.

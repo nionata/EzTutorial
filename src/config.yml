@@ -1,0 +1,12 @@
+#                                                      *
+#                                                      *
+#     This is the Config for the EzTutorial Plugin     *                                                      #         All the Tutorials configuration info         *
+#                 Will be stored here                  *
+#                                                      *
+New Players Default Tutorial:
+  Enabled: false
+  Tutorial Name: Put default tutorial name here
+  Join Message:
+    Enabled: false
+    Message: Welcome! Your are now going to go through a new player tutorial!
+Tutorials:
