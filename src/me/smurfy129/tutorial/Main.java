@@ -14,23 +14,19 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
-	
-	/*
-	 * To-Do:
-	 * 
-	 * look at new tutorial fix problem with placing sign 
-	 * 
-	 */
 
-	//Initializing - variables and other things being set up
-	public static Main plugin;
+	//Initializing- variables and other things being set up
+	
+	public static Main plugin; //Creating- instance of this class, so it can be accessed throughout
+	
 	TutorialAction tut;
-	Logger myLog = Bukkit.getLogger();
 	NewTutorial CreTut;
 	CommandManager CmdManage;
 	
 	public static Economy econ = null;
 	PluginDescriptionFile pdf = this.getDescription();
+	Logger myLog = Bukkit.getLogger();
+	
 	int permsCounter = 0;
 
 	//Logging to console
@@ -40,17 +36,21 @@ public class Main extends JavaPlugin {
 			myLog.info("[EzTutorial] No economy plugin found, money rewards will not be given");
 		}
 		
+		//Loading- up the configuration files
 		SettingsManager.getConfig();
 		SettingsManager.getTutorials();
 		
+		//Setting- all the instances 
 		plugin = this;
 		tut = new TutorialAction(this);
 		CreTut = new NewTutorial();
 		
+		//Setting- executors for the commands
 		getCommand("tutorial").setExecutor(CmdManage = new CommandManager());
 		getCommand("tut").setExecutor(CmdManage = new CommandManager());
 		getCommand("t").setExecutor(CmdManage = new CommandManager());
 		
+		//Registering- listeners
 		getServer().getPluginManager().registerEvents(new PluginListener(), this);
 		
 		myLog.info("[EzTutorial] has been enabled!");

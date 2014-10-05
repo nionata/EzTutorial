@@ -8,10 +8,12 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class SettingsManager {
 	
+	//Creating- instances of SettingsManager, two new yml's
 	private static final SettingsManager 
 	tutorials = new SettingsManager("tutorials"),
 	configuration = new SettingsManager("config");
 	
+	//Getters and Setters for the config files
 	public static SettingsManager getConfig() {
 		return configuration;
 	}
@@ -20,9 +22,11 @@ public class SettingsManager {
 		return tutorials;
 	}
 	
-	private File file;
-	private FileConfiguration config;
+	private File file; 	//Actual file
+	private FileConfiguration config; //Configuration instance of the file
 	
+	
+	//Loading- in the files, creating new ones from hard copies if they don't exist
 	private SettingsManager(String fileName) {
 		file = new File(Main.plugin.getDataFolder(), fileName + ".yml");
 		
@@ -30,14 +34,15 @@ public class SettingsManager {
 			try {
 				Main.plugin.saveResource(fileName + ".yml", false);
 			} catch(Exception e) {
-				Main.plugin.myLog.severe("[DiseaseCore] " + fileName + ".yml could not be created! Error!");
+				Main.plugin.myLog.severe("[EzTutorial] " + fileName + ".yml could not be created! Error!");
 				e.printStackTrace();
 			}
 		}
 		
 		config = YamlConfiguration.loadConfiguration(file);
 	}
-
+	
+    //Methods- used with the individual Configs
 	public void set(String path, Object value) {
 		config.set(path, value);
 		save();
