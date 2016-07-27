@@ -1,4 +1,4 @@
-package me.Smurfy129.main;
+package me.smurfy129.tutorial;
 
 import java.util.logging.Logger;
 import net.milkbowl.vault.economy.Economy;
@@ -14,10 +14,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 // Referenced classes of package me.Smurfy129.main:
 //            SubCommands, PluginListener
 
-public class main extends JavaPlugin
+public class Main extends JavaPlugin
 {
 
-    public main()
+    public Main()
     {
         myLog = Bukkit.getLogger();
     }
@@ -159,7 +159,7 @@ public class main extends JavaPlugin
         return false;
     }
 
-    public static main plugin;
+    public static Main plugin;
     SubCommands subCmds;
     Logger myLog;
     public static Economy econ = null;
