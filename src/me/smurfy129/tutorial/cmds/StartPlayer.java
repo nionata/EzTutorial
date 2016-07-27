@@ -14,7 +14,6 @@ public class StartPlayer extends TutorialCommand {
 	@Override
 	public void onCommand(Player player, String[] args) {
 
-		@SuppressWarnings("deprecation")
 		Player targetPlayer = Bukkit.getPlayer(args[1]);
 		String tutorialName = args[0];
 		if(Main.plugin.getConfig().contains("Tutorials." + tutorialName)) {

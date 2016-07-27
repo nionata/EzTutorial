@@ -6,6 +6,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+
 public class SettingsManager {
 	
 	//Creating- instances of SettingsManager, two new yml's
@@ -28,19 +29,21 @@ public class SettingsManager {
 	
 	//Loading- in the files, creating new ones from hard copies if they don't exist
 	private SettingsManager(String fileName) {
-		file = new File(Main.plugin.getDataFolder(), fileName + ".yml");
+		
+		file = new File("plugins/TimeIsMoney/" + fileName + ".yml");
 		
 		if(!file.exists()) {
 			try {
 				Main.plugin.saveResource(fileName + ".yml", false);
 			} catch(Exception e) {
-				Main.plugin.myLog.severe("[EzTutorial] " + fileName + ".yml could not be created! Error!");
+				Main.plugin.myLog.severe("[EzDoors] " + fileName + ".yml could not be created! Error!");
 				e.printStackTrace();
 			}
 		}
 		
 		config = YamlConfiguration.loadConfiguration(file);
 	}
+	
 	
     //Methods- used with the individual Configs
 	public void set(String path, Object value) {
