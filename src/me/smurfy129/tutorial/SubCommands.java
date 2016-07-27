@@ -11,13 +11,13 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-// Referenced classes of package me.Smurfy129.main:
-//            main
+// Referenced classes of package me.Smurfy129.Main:
+//            Main
 
 public class SubCommands
 {
 
-    public SubCommands(main plugin)
+    public SubCommands(Main plugin)
     {
         playerSign = new HashMap();
         this.plugin = plugin;
@@ -26,7 +26,7 @@ public class SubCommands
     public void newCommand(Player player, String args[])
     {
         String tutorialName = args[1];
-        if(main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).toString()))
+        if(Main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).toString()))
         {
             player.sendMessage((new StringBuilder()).append(ChatColor.RED).append("This tutorial already exists!").toString());
         } else
@@ -46,9 +46,9 @@ public class SubCommands
         {
             int locationNumber = Integer.parseInt(args[2]);
             Location loc = player.getLocation();
-            if(main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).toString()))
+            if(Main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).toString()))
             {
-                if(main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).toString()))
+                if(Main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).toString()))
                 {
                     player.sendMessage((new StringBuilder()).append(ChatColor.RED).append("The tutorial \"").append(tutorialName).append("\" already has a location ").append(locationNumber).toString());
                 } else
@@ -58,15 +58,15 @@ public class SubCommands
                     double zLocation = loc.getZ();
                     float pitch = loc.getPitch();
                     float yaw = loc.getYaw();
-                    main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Message").append(".Enabled").toString(), Boolean.valueOf(true));
-                    main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Message").append(".Message").toString(), "Default Message");
-                    main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Message").append(".Location Name").toString(), (new StringBuilder()).append(locationNumber).toString());
-                    main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".X").toString(), Double.valueOf(xLocation));
-                    main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Y").toString(), Double.valueOf(yLocation));
-                    main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Z").toString(), Double.valueOf(zLocation));
-                    main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Pitch").toString(), Float.valueOf(pitch));
-                    main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Yaw").toString(), Float.valueOf(yaw));
-                    main.plugin.saveConfig();
+                    Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Message").append(".Enabled").toString(), Boolean.valueOf(true));
+                    Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Message").append(".Message").toString(), "Default Message");
+                    Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Message").append(".Location Name").toString(), (new StringBuilder()).append(locationNumber).toString());
+                    Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".X").toString(), Double.valueOf(xLocation));
+                    Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Y").toString(), Double.valueOf(yLocation));
+                    Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Z").toString(), Double.valueOf(zLocation));
+                    Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Pitch").toString(), Float.valueOf(pitch));
+                    Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).append(".Yaw").toString(), Float.valueOf(yaw));
+                    Main.plugin.saveConfig();
                     player.sendMessage((new StringBuilder()).append(ChatColor.GRAY).append("[EzTutorial] ").append(ChatColor.AQUA).append("Location ").append(ChatColor.GRAY).append(locationNumber).append(ChatColor.AQUA).append(" has been saved in tutorial ").append(ChatColor.GRAY).append("\"").append(tutorialName).append("\"").toString());
                 }
             } else
@@ -86,10 +86,10 @@ public class SubCommands
         try
         {
             int locationNumber = Integer.parseInt(args[2]);
-            if(main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).toString()))
+            if(Main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).toString()))
             {
-                main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).toString(), null);
-                main.plugin.saveConfig();
+                Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(locationNumber).toString(), null);
+                Main.plugin.saveConfig();
                 player.sendMessage((new StringBuilder()).append(ChatColor.GRAY).append("[EzTutorial] ").append(ChatColor.AQUA).append("Location ").append(ChatColor.GRAY).append(locationNumber).append(ChatColor.AQUA).append(" has been deleted from tutorial ").append(ChatColor.GRAY).append("\"").append(tutorialName).append("\"").toString());
             } else
             {
@@ -105,10 +105,10 @@ public class SubCommands
     public void delTutorial(Player player, String args[])
     {
         String tutorialName = args[1];
-        if(main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).toString()))
+        if(Main.plugin.getConfig().contains((new StringBuilder("Tutorials.")).append(tutorialName).toString()))
         {
-            main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).toString(), null);
-            main.plugin.saveConfig();
+            Main.plugin.getConfig().set((new StringBuilder("Tutorials.")).append(tutorialName).toString(), null);
+            Main.plugin.saveConfig();
             player.sendMessage((new StringBuilder()).append(ChatColor.GRAY).append("[EzTutorial] ").append(ChatColor.AQUA).append("The tutorial ").append(ChatColor.GRAY).append("\"").append(tutorialName).append("\"").append(ChatColor.AQUA).append(" has been deleted").toString());
         } else
         {
@@ -120,7 +120,7 @@ public class SubCommands
     {
         try
         {
-            Set tutorials = main.plugin.getConfig().getConfigurationSection("Tutorials.").getKeys(false);
+            Set tutorials = Main.plugin.getConfig().getConfigurationSection("Tutorials.").getKeys(false);
             if(tutorials.size() == 0)
             {
                 if(player.hasPermission("tutorial.new"))
@@ -136,7 +136,7 @@ public class SubCommands
                 for(Iterator iterator = tutorials.iterator(); iterator.hasNext(); player.sendMessage((new StringBuilder()).append(ChatColor.GRAY).append(s).append("            Locations: ").append(locsNum).toString()))
                 {
                     s = (String)iterator.next();
-                    Set locs = main.plugin.getConfig().getConfigurationSection((new StringBuilder("Tutorials.")).append(s).toString()).getKeys(false);
+                    Set locs = Main.plugin.getConfig().getConfigurationSection((new StringBuilder("Tutorials.")).append(s).toString()).getKeys(false);
                     locsNum = locs.size() - 4;
                 }
 
@@ -155,24 +155,24 @@ public class SubCommands
     {
         String tutorialName = tutName;
         HashMap tutorialLocations = new HashMap();
-        Set data = main.plugin.getConfig().getConfigurationSection((new StringBuilder("Tutorials.")).append(tutorialName).toString()).getKeys(false);
+        Set data = Main.plugin.getConfig().getConfigurationSection((new StringBuilder("Tutorials.")).append(tutorialName).toString()).getKeys(false);
         int dataNum = data.size() - 4;
         Location playerLocation = player.getLocation();
-        Long delay = Long.valueOf(main.plugin.getConfig().getLong((new StringBuilder("Tutorials.")).append(tutorialName).append(".Delay In Seconds").toString()) * 20L);
+        Long delay = Long.valueOf(Main.plugin.getConfig().getLong((new StringBuilder("Tutorials.")).append(tutorialName).append(".Delay In Seconds").toString()) * 20L);
         if(dataNum == 1)
             player.sendMessage((new StringBuilder()).append(ChatColor.GRAY).append("- There will be 1 location we will visit during this tutorial").toString());
         else
             player.sendMessage((new StringBuilder()).append(ChatColor.GRAY).append("- There will be ").append(dataNum).append(" locations we will visit during this tutorial").toString());
         for(int i = 1; i <= dataNum; i++)
         {
-            double x = main.plugin.getConfig().getDouble((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(i).append(".X").toString());
-            double y = main.plugin.getConfig().getDouble((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(i).append(".Y").toString());
-            double z = main.plugin.getConfig().getDouble((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(i).append(".Z").toString());
+            double x = Main.plugin.getConfig().getDouble((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(i).append(".X").toString());
+            double y = Main.plugin.getConfig().getDouble((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(i).append(".Y").toString());
+            double z = Main.plugin.getConfig().getDouble((new StringBuilder("Tutorials.")).append(tutorialName).append(".").append(i).append(".Z").toString());
             Location loc = new Location(player.getWorld(), x, y, z);
             tutorialLocations.put((new StringBuilder()).append(i).toString(), loc);
         }
 
-        if(!main.plugin.getConfig().getBoolean((new StringBuilder("Tutorials.")).append(tutorialName).append(".Move During Tutorial").toString()))
+        if(!Main.plugin.getConfig().getBoolean((new StringBuilder("Tutorials.")).append(tutorialName).append(".Move During Tutorial").toString()))
         {
             player.setWalkSpeed(0.0F);
             player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 10000, 128));
@@ -181,9 +181,9 @@ public class SubCommands
         (new  Object(dataNum, tutorialName, tutorialLocations, player, playerLocation)     /* anonymous class not found */
     class _anm1 {}
 
-).runTaskTimer(main.plugin, 0L, delay.longValue());
+).runTaskTimer(Main.plugin, 0L, delay.longValue());
     }
 
     HashMap playerSign;
-    main plugin;
+    Main plugin;
 }
