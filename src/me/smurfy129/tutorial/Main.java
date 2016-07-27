@@ -27,7 +27,7 @@ public class Main extends JavaPlugin {
 	PluginDescriptionFile pdf = this.getDescription();
 	Logger myLog = Bukkit.getLogger();
 	
-	int permsCounter = 0;
+	int permsCounter = 0
 
 	//Logging to console
 	public void onEnable() {
